@@ -1,5 +1,9 @@
 # RoadLens
 
+[![CI](https://github.com/doggytian/RoadLens/actions/workflows/ci.yml/badge.svg)](https://github.com/doggytian/RoadLens/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/)
+
 **车道级 / 道路级地理空间数据的「可视化分析 + 质量检查」开源工作台。**
 
 RoadLens 是一个完全自包含、可本地运行的 Web 工具，灵感来自内部 HD 地图工作台，但**不依赖任何专有代码、专有数据、内部网络或商业 SDK**。所有数据来自公开来源（OpenStreetMap）或完全合成的随机几何，所有依赖均为开源库。
