@@ -2,7 +2,7 @@
 # 构建: docker build -t roadlens .
 # 运行: docker run --rm -p 8124:8124 roadlens
 #   访问: http://localhost:8124
-FROM python:3.11-slim
+FROM python:3.14-slim
 
 # shapely / pyproj 依赖 GEOS / PROJ 运行库
 RUN apt-get update \
