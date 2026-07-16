@@ -1,5 +1,5 @@
 Flask>=2.3,<4.0
-Flask-Compress>=1.13
+Flask-Compress>=1.24
 shapely>=2.0
 pyproj>=3.4
 requests>=2.28
