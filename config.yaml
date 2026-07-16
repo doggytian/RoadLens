@@ -1,0 +1,42 @@
+# RoadLens 配置
+
+server:
+  host: "0.0.0.0"
+  port: 8124
+  debug: false
+
+workspace:
+  # 运行时用户数据根目录（按用户隔离，gitignore）
+  root: "workspace"
+  # 用户目录超龄清理阈值（小时）
+  cleanup_max_age_hours: 12
+  # 清理线程轮询间隔（秒）
+  cleanup_interval_seconds: 1800
+
+tiles:
+  # 经纬度网格大小（度），用于把范围划入 tile
+  grid_size_deg: 0.01
+  # 内置示例 tile id（启动时尝试加载，对应 sample_data/tile_sample_city.geojson）
+  sample_tile_id: "tile_sample_city"
+
+data:
+  # 示例数据目录（仓库内置，随 git 提交）
+  sample_dir: "sample_data"
+  # 几何坐标系（存储为 WGS84 经纬度）
+  crs: "EPSG:4326"
+  # 本地投影（用于米制几何计算的等距投影，按 tile 中心动态生成）
+  local_crs_template: "EPSG:4326+local"
+
+qc:
+  # 标准车道宽度（米）
+  std_lane_width: 3.5
+  # 走廊宽度合理容差系数
+  corridor_width_tolerance: 0.35
+  # 中心线覆盖阈值（覆盖率低于此值视为问题）
+  centerline_coverage_threshold: 0.9
+  # 负向缓冲距离（米）
+  corridor_buffer_distance: 0.5
+  # 压盖最小重叠面积（平方米）
+  overlap_min_area: 1.0
+  # 几何有效性的最小面积（平方米）
+  min_valid_area: 0.01

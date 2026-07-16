@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RoadLens · 车道级道路数据可视化与质检工作台</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <!-- 登录遮罩 -->
+  <div id="login-modal" class="modal-mask">
+    <div class="modal-box">
+      <h2>RoadLens</h2>
+      <p class="muted">车道级道路数据可视化与质量检查工作台</p>
+      <label for="username-input">用户名（字母/数字/下划线，1~32 字符）</label>
+      <input id="username-input" maxlength="32" placeholder="例如 alice_01" autocomplete="off" />
+      <div id="login-error" class="error-text"></div>
+      <button id="login-btn">进入工作台</button>
+    </div>
+  </div>
+
+  <!-- 顶部工具栏 -->
+  <header id="topbar">
+    <div class="brand">RoadLens</div>
+    <div class="tool-group">
+      <label>Tile</label>
+      <select id="tile-select"></select>
+      <button id="reload-btn" title="重新加载当前 tile">刷新</button>
+    </div>
+    <div class="tool-group">
+      <label>经度</label><input id="jump-lon" type="number" step="0.0001" placeholder="116.39" />
+      <label>纬度</label><input id="jump-lat" type="number" step="0.0001" placeholder="39.91" />
+      <button id="jump-btn">定位</button>
+    </div>
+    <div class="tool-group">
+      <button id="boxselect-btn" title="开启框选模式（拖拽矩形）">框选</button>
+      <span id="user-label" class="muted"></span>
+    </div>
+  </header>
+
+  <main id="layout">
+    <!-- 左侧控制面板 -->
+    <aside id="sidebar">
+      <section class="panel">
+        <h3>图层样式</h3>
+        <div id="layer-styles"></div>
+        <label class="row"><input type="checkbox" id="auto-color" checked /> 按类型自动上色</label>
+      </section>
+
+      <section class="panel">
+        <h3>质检图层</h3>
+        <div id="qc-list"></div>
+      </section>
+
+      <section class="panel" id="candidate-panel" style="display:none">
+        <h3>候选要素（<span id="candidate-count">0</span>）</h3>
+        <ul id="candidate-list"></ul>
+      </section>
+    </aside>
+
+    <!-- 地图 -->
+    <div id="map"></div>
+
+    <!-- 右侧属性面板 -->
+    <aside id="inspector">
+      <h3>属性</h3>
+      <div id="inspector-body" class="muted">点击地图要素查看属性</div>
+    </aside>
+  </main>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script type="module" src="/static/js/main.js"></script>
+</body>
+</html>
