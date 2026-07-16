@@ -1,0 +1,30 @@
+# 版本控制 / IDE
+.git
+.gitignore
+.github
+.editorconfig
+.vscode
+.idea
+
+# Python 缓存与虚拟环境
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+venv/
+.venv/
+
+# 运行时用户数据（容器内会重建，应通过挂载卷持久化）
+workspace/
+
+# 测试与开发件
+tests/
+requirements-dev.txt
+
+# 文档
+*.md
+!README.md
+
+# 系统文件
+.DS_Store

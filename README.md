@@ -38,6 +38,18 @@ open http://localhost:8124
 
 > 端口、网格大小、质检阈值等见 `config.yaml`。
 
+### 用 Docker 运行
+
+```bash
+# 构建镜像
+docker build -t roadlens .
+
+# 运行（可选：挂载卷持久化用户数据）
+docker run --rm -p 8124:8124 -v "$PWD/workspace:/app/workspace" roadlens
+```
+
+容器内使用 gunicorn 提供生产级服务，访问 http://localhost:8124。
+
 ---
 
 ## 功能概览
